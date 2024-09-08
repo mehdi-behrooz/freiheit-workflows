@@ -23,7 +23,7 @@ jobs:
       - name: Set Extra Environment Variables
         run: |
           for line in "${{ inputs.environment }}"; do
-            echo $line >> $GITHUB_ENV
+            printf "%s\n" $line >> $GITHUB_ENV
           done
       - name: Verify code
         uses: super-linter/super-linter/slim@v7.0.0
