@@ -28,7 +28,7 @@ jobs:
           images: ${{ env.IMAGE_NAME }}
           flavor: latest=false
           tags: |
-            type=ref,event=branch,enable=${{github.ref_name != github.event.repository.default_branch}}
+            type=raw,value=dev,enable=${{github.ref_name != github.event.repository.default_branch}}
             type=raw,value=latest,enable=${{github.ref_name == github.event.repository.default_branch}}
       - name: Build and Push
         uses: docker/build-push-action@v5
